@@ -12,7 +12,6 @@ jobs:
         include:
           - platform: ubuntu-latest
             version: 18
-        continue-on-error: ${{ matrix.experimental }}
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
