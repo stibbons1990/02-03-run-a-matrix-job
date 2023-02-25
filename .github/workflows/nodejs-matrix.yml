@@ -4,18 +4,15 @@ on:
 jobs:
   build:
     strategy:
-	  fail-fast: false
-	  max-parallel: 3
+      fail-fast: false
+      max-parallel: 3
       matrix:
         version: [14, 16, 17]
         platform: [ubuntu-latest, macos-latest, windows-latest]
-		include:
-		  - platform: ubuntu-latest
-		    version: 18
-		exclude:
-		  - platform: macos-latest
-		    version: 14
-		continue-on-error: ${{ matrix.experimental }}
+        include:
+          - platform: ubuntu-latest
+            version: 18
+        continue-on-error: ${{ matrix.experimental }}
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v2
